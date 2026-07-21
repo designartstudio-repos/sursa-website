@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact — Design Art Studio</title>
+<meta name="description" content="Scrie-ne un mesaj despre proiectul tău de arhitectură sau design interior. Îți răspundem cât mai curând.">
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Sari la conținutul principal</a>
+<div class="grain" aria-hidden="true"></div>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="index.html" class="logo">Design Art<span>Studio</span></a>
+    <button class="nav-toggle" aria-label="Deschide meniul" aria-expanded="false" aria-controls="primary-nav">
+      <span></span><span></span><span></span>
+    </button>
+    <nav id="primary-nav" class="site-nav" aria-label="Principal">
+      <ul>
+        <li><a href="index.html">Acasă</a></li>
+        <li><a href="despre-noi.html">Despre Noi</a></li>
+        <li><a href="portofoliu.html">Portofoliu</a></li>
+        <li><a href="contact.html" aria-current="page">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <section class="section">
+    <div class="container">
+      <div class="split">
+        <div class="reveal-img split-media">
+          <img src="assets/images/portfolio/proj-09.jpg" alt="Birou Design Art Studio, proiect propriu">
+        </div>
+        <div class="split-body reveal">
+          <span class="eyebrow">Contact</span>
+          <h1>Hai să <em>vorbim</em> despre proiectul tău.</h1>
+          <p class="contact-address">Str. Madona Dudu, nr. 1, Craiova, Dolj</p>
+          <p class="contact-address"><a href="tel:+40764008121">0764 008 121</a></p>
+          <p class="contact-address"><a href="mailto:designartstudiocraiova@gmail.com">designartstudiocraiova@gmail.com</a></p>
+          <p>Scrie-ne câteva rânduri despre spațiul tău — locație, suprafață, ce ți-ai dori să obții — și revenim cu un răspuns personal, de obicei în câteva zile lucrătoare.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt">
+    <div class="container">
+      <div class="contact-form-wrap reveal">
+        <span class="eyebrow">Formular</span>
+        <h2>Spune-ne despre proiect</h2>
+        <form id="contact-form" novalidate>
+          <div class="form-row">
+            <div class="field">
+              <label for="fullName">Nume complet</label>
+              <input type="text" id="fullName" name="fullName" autocomplete="name">
+            </div>
+            <div class="field">
+              <label for="projectType">Tip proiect</label>
+              <select id="projectType" name="projectType">
+                <option value="" disabled selected>Alege o opțiune</option>
+                <option value="Rezidențial">Rezidențial</option>
+                <option value="Comercial">Comercial</option>
+                <option value="Amenajare interioară">Amenajare interioară</option>
+                <option value="Altceva">Altceva</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="field">
+              <label for="email">Email<span class="req">*</span></label>
+              <input type="email" id="email" name="email" autocomplete="email" required>
+            </div>
+            <div class="field">
+              <label for="phone">Telefon</label>
+              <input type="tel" id="phone" name="phone" autocomplete="tel">
+            </div>
+          </div>
+          <div class="field">
+            <label for="surface">Suprafață aproximativă (mp)</label>
+            <input type="text" id="surface" name="surface" placeholder="opțional">
+          </div>
+          <div class="field">
+            <label for="message">Mesaj<span class="req">*</span></label>
+            <textarea id="message" name="message" required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary">
+            Trimite mesajul
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </button>
+          <p id="form-status" class="form-status" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <section class="statement">
+    <div class="statement-inner reveal">
+      <span class="eyebrow">Vino pe la noi</span>
+      <blockquote>
+        <p>Te așteptăm pe Str. Madona Dudu, nr. 1, în inima Craiovei.</p>
+      </blockquote>
+      <div class="map-embed map-embed--contained reveal" style="margin-top:3rem;">
+        <iframe
+          src="https://www.google.com/maps?q=Strada+Madona+Dudu+1%2C+Craiova%2C+Dolj%2C+Romania&output=embed"
+          title="Harta locației Design Art Studio — Str. Madona Dudu, nr. 1, Craiova"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          allowfullscreen>
+        </iframe>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <a href="index.html" class="logo">Design Art<span>Studio</span></a>
+    <nav class="footer-nav" aria-label="Footer">
+      <ul>
+        <li><a href="index.html">Acasă</a></li>
+        <li><a href="despre-noi.html">Despre Noi</a></li>
+        <li><a href="portofoliu.html">Portofoliu</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+    <p class="copyright">&copy; <span class="year"></span> by Design Art Studio.</p>
+  </div>
+</footer>
+
+<script src="js/script.js"></script>
+</body>
+</html>
