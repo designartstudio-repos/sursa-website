@@ -1,1 +1,1 @@
-Codul sursa al website-ului [designartstudio.ro] (https://designartstudio.ro/)
+Codul sursa al website-ului [designartstudio.ro](https://designartstudio.ro/)
