@@ -259,21 +259,40 @@ function initContactForm() {
     const projectType = (data.get('projectType') || '').toString().trim();
     const surface = (data.get('surface') || '').toString().trim();
 
-    const subject = encodeURIComponent(`Mesaj nou de la ${fullName}`.trim());
-    const bodyLines = [
-      `Nume: ${fullName}`,
-      `Email: ${email}`,
-      phone ? `Telefon: ${phone}` : null,
-      projectType ? `Tip proiect: ${projectType}` : null,
-      surface ? `Suprafață aproximativă: ${surface} mp` : null,
-      '',
-      message,
-    ].filter((line) => line !== null);
-    const body = encodeURIComponent(bodyLines.join('\n'));
+    const payload = {
+      _subject: `Mesaj nou de la ${fullName}`.trim(),
+      _template: 'table',
+      Nume: fullName,
+      email,
+    };
+    if (phone) payload.Telefon = phone;
+    if (projectType) payload['Tip proiect'] = projectType;
+    if (surface) payload['Suprafață aproximativă'] = `${surface} mp`;
+    payload.Mesaj = message;
 
-    window.location.href = `mailto:${CONTACT_EMAIL}?subject=${subject}&body=${body}`;
-    showStatus(status, 'Mesajul a fost pregătit în clientul tău de email — apasă „Trimite” acolo pentru a-l finaliza.', 'success');
-    form.reset();
+    const submitBtn = form.querySelector('button[type="submit"]');
+    if (submitBtn) submitBtn.disabled = true;
+    showStatus(status, 'Se trimite mesajul...', 'sending');
+
+    fetch(`https://formsubmit.co/ajax/${CONTACT_EMAIL}`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+      body: JSON.stringify(payload),
+    })
+      .then((res) => {
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        return res.json();
+      })
+      .then(() => {
+        showStatus(status, 'Mesajul a fost trimis. Îți mulțumim — revenim cât de curând!', 'success');
+        form.reset();
+      })
+      .catch(() => {
+        showStatus(status, 'Mesajul nu a putut fi trimis. Te rugăm încearcă din nou sau scrie-ne direct pe email.', 'error');
+      })
+      .finally(() => {
+        if (submitBtn) submitBtn.disabled = false;
+      });
   });
 }
 
