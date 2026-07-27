@@ -265,7 +265,7 @@ function initContactForm() {
     if (submitBtn) submitBtn.disabled = true;
     showStatus(status, 'Se trimite mesajul...', 'sending');
 
-    fetch('contact.php', {
+   fetch(`https://formsubmit.co/ajax/${CONTACT_EMAIL}`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
       body: JSON.stringify(payload),
