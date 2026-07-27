@@ -259,22 +259,13 @@ function initContactForm() {
     const projectType = (data.get('projectType') || '').toString().trim();
     const surface = (data.get('surface') || '').toString().trim();
 
-    const payload = {
-      _subject: `Mesaj nou de la ${fullName}`.trim(),
-      _template: 'table',
-      Nume: fullName,
-      email,
-    };
-    if (phone) payload.Telefon = phone;
-    if (projectType) payload['Tip proiect'] = projectType;
-    if (surface) payload['Suprafață aproximativă'] = `${surface} mp`;
-    payload.Mesaj = message;
+    const payload = { fullName, email, phone, projectType, surface, message };
 
     const submitBtn = form.querySelector('button[type="submit"]');
     if (submitBtn) submitBtn.disabled = true;
     showStatus(status, 'Se trimite mesajul...', 'sending');
 
-    fetch(`https://formsubmit.co/ajax/${CONTACT_EMAIL}`, {
+    fetch('contact.php', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
       body: JSON.stringify(payload),
